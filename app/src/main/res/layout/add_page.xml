@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.DashboardFragment">
+
+    <View
+        android:id="@+id/viewBox"
+        android:layout_width="431dp"
+        android:layout_height="536dp"
+        android:layout_marginTop="315dp"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/viewBox2"
+        android:layout_width="196dp"
+        android:layout_height="144dp"
+        android:background="@color/lightGrey"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="@+id/viewBox"
+        app:layout_constraintTop_toTopOf="@+id/viewBox"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:textColor="@color/yellow"
+        android:textSize="18sp"
+        app:backgroundTint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewBox"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        android:textColor="@color/yellow"
+        android:textSize="18sp"
+        app:backgroundTint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewBox"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/workout_spinner"
+        android:layout_width="197dp"
+        android:layout_height="32dp"
+        android:background="@color/white"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:fadeScrollbars="false"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewBox"
+        app:layout_constraintVertical_bias="0.275" />
+
+    <TextView
+        android:id="@+id/sets"
+        android:layout_width="57dp"
+        android:layout_height="43dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/sets"
+        android:textColor="@color/yellow"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBox2"
+        app:layout_constraintEnd_toEndOf="@+id/viewBox2"
+        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintStart_toStartOf="@+id/viewBox2"
+        app:layout_constraintTop_toTopOf="@+id/viewBox2"
+        app:layout_constraintVertical_bias="0.217" />
+
+    <EditText
+        android:id="@+id/NumberOfSets"
+        android:layout_width="55dp"
+        android:layout_height="43dp"
+        android:autofillHints=""
+        android:cursorVisible="true"
+        android:ems="10"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="@string/_2"
+        android:inputType="numberSigned"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBox2"
+        app:layout_constraintEnd_toEndOf="@+id/viewBox2"
+        app:layout_constraintHorizontal_bias="0.723"
+        app:layout_constraintStart_toStartOf="@+id/viewBox2"
+        app:layout_constraintTop_toTopOf="@+id/viewBox2"
+        app:layout_constraintVertical_bias="0.217" />
+
+    <EditText
+        android:id="@+id/NumberOfReps"
+        android:layout_width="55dp"
+        android:layout_height="43dp"
+        android:autofillHints=""
+        android:cursorVisible="true"
+        android:ems="10"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="@string/_2"
+        android:inputType="numberSigned"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBox2"
+        app:layout_constraintEnd_toEndOf="@+id/viewBox2"
+        app:layout_constraintHorizontal_bias="0.73"
+        app:layout_constraintStart_toStartOf="@+id/viewBox2"
+        app:layout_constraintTop_toTopOf="@+id/viewBox2"
+        app:layout_constraintVertical_bias="0.782" />
+
+    <TextView
+        android:id="@+id/reps"
+        android:layout_width="57dp"
+        android:layout_height="43dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/reps"
+        android:textColor="@color/yellow"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBox2"
+        app:layout_constraintEnd_toEndOf="@+id/viewBox2"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="@+id/viewBox2"
+        app:layout_constraintTop_toTopOf="@+id/viewBox2"
+        app:layout_constraintVertical_bias="0.782" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
