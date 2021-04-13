@@ -18,9 +18,4 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
-        android:id="@+id/navigation_add"
-        android:name="com.example.workoutapp.ui.dashboard.DashboardFragment"
-        android:label="@string/title_add"
-        tools:layout="@layout/fragment_add" />
 </navigation>

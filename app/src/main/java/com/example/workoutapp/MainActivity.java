@@ -1,6 +1,8 @@
 package com.example.workoutapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_add, R.id.navigation_history)
+                R.id.navigation_home, R.id.navigation_history)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -38,5 +40,8 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
     }
-
+    public void add_page(View view) {
+        Intent intent = new Intent(this, AddClass.class);
+        startActivity(intent);
+    }
 }
