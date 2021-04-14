@@ -6,8 +6,8 @@
 
     <View
         android:id="@+id/viewBox"
-        android:layout_width="431dp"
-        android:layout_height="536dp"
+        android:layout_width="425dp"
+        android:layout_height="545dp"
         android:layout_marginTop="315dp"
         android:background="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,6 +58,21 @@
         app:layout_constraintTop_toTopOf="@+id/viewBox"
         app:layout_constraintVertical_bias="0.0" />
 
+    <Button
+        android:id="@+id/AddBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:backgroundTint="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewBox"
+        app:layout_constraintVertical_bias="0.854" />
+
     <Spinner
         android:id="@+id/workout_spinner"
         android:layout_width="197dp"
@@ -89,6 +104,23 @@
         app:layout_constraintStart_toStartOf="@+id/viewBox2"
         app:layout_constraintTop_toTopOf="@+id/viewBox2"
         app:layout_constraintVertical_bias="0.217" />
+
+    <TextView
+        android:id="@+id/TimeHeading"
+        android:layout_width="57dp"
+        android:layout_height="43dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/time_mins"
+        android:textColor="@color/yellow"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBox2"
+        app:layout_constraintEnd_toEndOf="@+id/viewBox2"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/viewBox2"
+        app:layout_constraintTop_toTopOf="@+id/viewBox2"
+        app:layout_constraintVertical_bias="0.108" />
 
     <EditText
         android:id="@+id/NumberOfSets"
@@ -154,15 +186,109 @@
         android:id="@+id/RunTime"
         android:layout_width="159dp"
         android:layout_height="39dp"
-        android:ems="10"
         android:autofillHints=""
+        android:ems="10"
         android:gravity="center"
-        android:hint="@string/_00_10_30"
-        android:inputType="time"
-        android:textColor="@color/yellow"
+        android:hint="@string/_10"
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/viewBox2"
         app:layout_constraintEnd_toEndOf="@+id/viewBox2"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="@+id/viewBox2"
-        app:layout_constraintTop_toTopOf="@+id/viewBox2" />
+        app:layout_constraintTop_toTopOf="@+id/viewBox2"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <View
+        android:id="@+id/transparency"
+        android:layout_width="434dp"
+        android:layout_height="753dp"
+        android:background="#CC605E5E"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/saveViewBox"
+        android:layout_width="382dp"
+        android:layout_height="336dp"
+        android:background="#1B1B1B"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/transparency"
+        app:layout_constraintVertical_bias="0.577" />
+
+    <TextView
+        android:id="@+id/workoutHeading"
+        android:layout_width="136dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="@string/workout_name"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/saveViewBox" />
+
+    <EditText
+        android:id="@+id/WorkoutName"
+        android:layout_width="281dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="136dp"
+        android:autofillHints=""
+        android:background="@color/lightGrey"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/example"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/saveViewBox"
+        app:layout_constraintHorizontal_bias="0.584"
+        app:layout_constraintStart_toStartOf="@+id/saveViewBox"
+        app:layout_constraintTop_toTopOf="@+id/saveViewBox" />
+
+    <Button
+        android:id="@+id/SaveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:backgroundTint="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.309"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewBox"
+        app:layout_constraintVertical_bias="0.57" />
+
+    <Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:backgroundTint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewBox"
+        app:layout_constraintVertical_bias="0.57" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

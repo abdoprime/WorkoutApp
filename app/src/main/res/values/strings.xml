@@ -10,7 +10,11 @@
     <string name="add_button">Add button</string>
     <string name="reps">Reps</string>
     <string name="create">Create</string>
-    <string name="_00_10_30">00:10:30</string>
+    <string name="_10">10</string>
+    <string name="time_mins">Time (Mins)</string>
+    <string name="save">Save</string>
+    <string name="workout_name">Workout Name</string>
+    <string name="example">example</string>
     <string-array name="workout_array">
         <item>Run</item>
         <item>Squats</item>
