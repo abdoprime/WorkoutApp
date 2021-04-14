@@ -1,15 +1,11 @@
 package com.example.workoutapp;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 
 public class AppFileManager {
-    AppFile appFile;
-    String filepath = "/app.saved";
 
+    public AppFile appFile;
+    String filepath = "./app.saved";
     public AppFileManager(){
         File file = new File(filepath);
         boolean exists = file.exists();
@@ -45,12 +41,12 @@ public class AppFileManager {
         else
         {
             try {
-
                 FileInputStream fileIn = new FileInputStream(filepath);
                 ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-                appFile = (AppFile)objectIn.readObject();
+                Object obj = (AppFile)objectIn.readObject();
                 System.out.println("The Object has been read from the file");
                 objectIn.close();
+                appFile = (AppFile) obj;
 
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -60,7 +56,9 @@ public class AppFileManager {
 
     private void saveFile()
     {
+        File file = new File(filepath);
         try{
+            file.delete();
             FileOutputStream fileOut = new FileOutputStream(filepath);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(appFile);

@@ -1,17 +1,11 @@
 package com.example.workoutapp;
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 public class AppFile implements Serializable{
-    ArrayList<Workout> workouts;
-    ArrayList<History> histories;
+    public ArrayList<Workout> workouts;
+    public ArrayList<History> histories;
+    private static final long serialVersionUID = 6529685098267753690L;
 
     public AppFile(ArrayList<Workout> workouts, ArrayList<History> histories)
     {
