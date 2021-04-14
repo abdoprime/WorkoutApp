@@ -5,14 +5,16 @@ import java.util.ArrayList;
 public class AppFileManager {
 
     public AppFile appFile;
-    String filepath = "./app.saved";
-    public AppFileManager(){
+    String filepath = "app.saved";
+    public AppFileManager(String fileDir){
+        filepath = fileDir + filepath;
         File file = new File(filepath);
         boolean exists = file.exists();
         if(exists == false)
         {
             try
             {
+                System.out.println("Went into Try");
                 FileOutputStream fileOut = new FileOutputStream(filepath);
                 ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
                 //public Exercise(String name, char type, int sets, int reps)
@@ -35,12 +37,15 @@ public class AppFileManager {
                 objectOut.close();
             }
             catch (Exception ex) {
+                System.out.println("Catch 1");
                 ex.printStackTrace();
+                System.out.println(ex);
             }
         }
         else
         {
             try {
+                System.out.println("Went into Try 2");
                 FileInputStream fileIn = new FileInputStream(filepath);
                 ObjectInputStream objectIn = new ObjectInputStream(fileIn);
                 Object obj = (AppFile)objectIn.readObject();
@@ -49,6 +54,7 @@ public class AppFileManager {
                 appFile = (AppFile) obj;
 
             } catch (Exception ex) {
+                System.out.println("Catch 2");
                 ex.printStackTrace();
             }
         }
@@ -66,12 +72,14 @@ public class AppFileManager {
         }
         catch (Exception ex)
         {
+            System.out.println(ex);
             ex.printStackTrace();
         }
     }
 
     public void newWorkout(Workout workout)
     {
+        System.out.println("Manager: " + workout.name + " " + workout.year + " " + workout.month + " " + workout.day + " " + " end");
         appFile.newWorkout(workout);
         this.saveFile();
     }

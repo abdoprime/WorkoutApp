@@ -15,6 +15,7 @@ public class AppFile implements Serializable{
 
     public void newWorkout(Workout workout)
     {
+        System.out.println("appFile: " + workout.name + " " + workout.year + " " + workout.month + " " + workout.day + " " + " end");
         this.workouts.add(workout);
     }
 
