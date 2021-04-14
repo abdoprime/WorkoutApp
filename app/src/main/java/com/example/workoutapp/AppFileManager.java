@@ -1,22 +1,20 @@
 package com.example.workoutapp;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 
 public class AppFileManager {
-    AppFile appFile;
-    String filepath = "/app.saved";
 
-    public AppFileManager(){
+    public AppFile appFile;
+    String filepath = "app.saved";
+    public AppFileManager(String fileDir){
+        filepath = fileDir + filepath;
         File file = new File(filepath);
         boolean exists = file.exists();
         if(exists == false)
         {
             try
             {
+                System.out.println("Went into Try");
                 FileOutputStream fileOut = new FileOutputStream(filepath);
                 ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
                 //public Exercise(String name, char type, int sets, int reps)
@@ -39,20 +37,24 @@ public class AppFileManager {
                 objectOut.close();
             }
             catch (Exception ex) {
+                System.out.println("Catch 1");
                 ex.printStackTrace();
+                System.out.println(ex);
             }
         }
         else
         {
             try {
-
+                System.out.println("Went into Try 2");
                 FileInputStream fileIn = new FileInputStream(filepath);
                 ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-                appFile = (AppFile)objectIn.readObject();
+                Object obj = (AppFile)objectIn.readObject();
                 System.out.println("The Object has been read from the file");
                 objectIn.close();
+                appFile = (AppFile) obj;
 
             } catch (Exception ex) {
+                System.out.println("Catch 2");
                 ex.printStackTrace();
             }
         }
@@ -60,7 +62,9 @@ public class AppFileManager {
 
     private void saveFile()
     {
+        File file = new File(filepath);
         try{
+            file.delete();
             FileOutputStream fileOut = new FileOutputStream(filepath);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(appFile);
@@ -68,12 +72,14 @@ public class AppFileManager {
         }
         catch (Exception ex)
         {
+            System.out.println(ex);
             ex.printStackTrace();
         }
     }
 
     public void newWorkout(Workout workout)
     {
+        System.out.println("Manager: " + workout.name + " " + workout.year + " " + workout.month + " " + workout.day + " " + " end");
         appFile.newWorkout(workout);
         this.saveFile();
     }

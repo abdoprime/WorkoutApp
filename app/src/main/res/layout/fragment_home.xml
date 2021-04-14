@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".MainActivity$HomeFragment">
 
     <TextView
         android:id="@+id/text_home"
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:contentDescription="@string/add_button"
+        android:focusable="true"
         android:onClick="add_page"
         android:src="@drawable/outline_add_circle_24"
         app:backgroundTint="@color/green"
@@ -37,6 +38,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.844"
-        android:focusable="true"
         tools:ignore="OnClick" />
+
+    <Button
+        android:id="@+id/exampleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginLeft="159dp"
+        android:layout_marginTop="65dp"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

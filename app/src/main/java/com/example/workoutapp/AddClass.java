@@ -114,12 +114,13 @@ public class AddClass extends AppCompatActivity {
 
 
 
-                AppFileManager appFile = new AppFileManager();  // Error when creating
 
                 if (workout != null)
                 {
+                    String filedir = getFilesDir().getPath();
+                    AppFileManager appFile = new AppFileManager(filedir);
                     System.out.println("Exercise: " + workout.name + " " + workout.year + " " + workout.month + " " + workout.day + " " + " end");
-//                    appFile.newWorkout(workout);
+                    appFile.newWorkout(workout);
                 }
                 else
                 {
