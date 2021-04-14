@@ -114,7 +114,7 @@ public class AddClass extends AppCompatActivity {
 
 
 
-//                AppFileManager appFile = new AppFileManager();  // Error when creating
+                AppFileManager appFile = new AppFileManager();  // Error when creating
 
                 if (workout != null)
                 {
