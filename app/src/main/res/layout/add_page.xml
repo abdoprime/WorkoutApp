@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.dashboard.DashboardFragment">
+    android:layout_height="match_parent">
 
     <View
         android:id="@+id/viewBox"
@@ -47,10 +44,10 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/Add"
+        android:id="@+id/CreateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add"
+        android:text="@string/create"
         android:textColor="@color/yellow"
         android:textSize="18sp"
         app:backgroundTint="@color/grey"
@@ -148,9 +145,24 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/viewBox2"
         app:layout_constraintEnd_toEndOf="@+id/viewBox2"
-        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintHorizontal_bias="0.223"
         app:layout_constraintStart_toStartOf="@+id/viewBox2"
         app:layout_constraintTop_toTopOf="@+id/viewBox2"
         app:layout_constraintVertical_bias="0.782" />
+
+    <EditText
+        android:id="@+id/RunTime"
+        android:layout_width="159dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:autofillHints=""
+        android:gravity="center"
+        android:hint="@string/_00_10_30"
+        android:inputType="time"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBox2"
+        app:layout_constraintEnd_toEndOf="@+id/viewBox2"
+        app:layout_constraintStart_toStartOf="@+id/viewBox2"
+        app:layout_constraintTop_toTopOf="@+id/viewBox2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

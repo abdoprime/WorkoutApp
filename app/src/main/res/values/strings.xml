@@ -9,6 +9,8 @@
     <string name="_2">2</string>
     <string name="add_button">Add button</string>
     <string name="reps">Reps</string>
+    <string name="create">Create</string>
+    <string name="_00_10_30">00:10:30</string>
     <string-array name="workout_array">
         <item>Run</item>
         <item>Squats</item>
