@@ -6,9 +6,13 @@ public class AppFileManager {
 
     public AppFile appFile;
     String filepath = "app.saved";
-    public AppFileManager(String fileDir){
+    public AppFileManager(String fileDir, int toDelete){
         filepath = fileDir + filepath;
         File file = new File(filepath);
+        if(toDelete == 1)
+        {
+            file.delete();
+        }
         boolean exists = file.exists();
         if(exists == false)
         {
@@ -82,6 +86,11 @@ public class AppFileManager {
         System.out.println("Manager: " + workout.name + " " + workout.year + " " + workout.month + " " + workout.day + " " + " end");
         appFile.newWorkout(workout);
         this.saveFile();
+    }
+
+    public ArrayList<Workout> returnWorkoutList()
+    {
+        return appFile.workouts;
     }
 
     public void deleteWorkout(int index)
