@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.annotation.NonNull;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,14 +51,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             name = itemView.findViewById(R.id.wrkName);
             date = itemView.findViewById(R.id.wrkDate);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int i = getAdapterPosition();
+            itemView.setOnClickListener(v -> {
+                int i = getAdapterPosition();
 
-                }
+                Intent intent = new Intent(itemView.getContext(), ExerciseClass.class);
+                intent.putExtra("INDEX", i);
+                itemView.getContext().startActivity(intent);
+
+                System.out.println("Exercise: " + i + " workout");
             });
-
         }
     }
 }

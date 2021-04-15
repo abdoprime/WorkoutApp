@@ -20,7 +20,7 @@ public class NotificationFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_history, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
+//        final TextView textView = root.findViewById(R.id.text_notifications);
         return root;
     }
 }

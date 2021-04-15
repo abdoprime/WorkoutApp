@@ -43,10 +43,13 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-
     }
     public void add_page(View view) {
         Intent intent = new Intent(this, AddClass.class);
+        startActivity(intent);
+    }
+    public void exercise_page() {
+        Intent intent = new Intent(this, ExerciseClass.class);
         startActivity(intent);
     }
 }

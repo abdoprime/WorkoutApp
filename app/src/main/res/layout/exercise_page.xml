@@ -7,9 +7,9 @@
 
     <View
         android:id="@+id/exerciseHeading"
-        android:layout_width="422dp"
-        android:layout_height="67dp"
-        android:background="@color/lightGrey"
+        android:layout_width="455dp"
+        android:layout_height="66dp"
+        android:background="@color/headingGrey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
@@ -39,7 +39,7 @@
         android:gravity="center"
         android:text="@string/title"
         android:textColor="@color/green"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/exerciseHeading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

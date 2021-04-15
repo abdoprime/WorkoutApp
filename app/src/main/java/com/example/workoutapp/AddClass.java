@@ -110,7 +110,7 @@ public class AddClass extends AppCompatActivity {
                 if (workout != null)
                 {
                     String filedir = getFilesDir().getPath();
-                    AppFileManager appFile = new AppFileManager(filedir);
+                    AppFileManager appFile = new AppFileManager(filedir, 0);
 //                    System.out.println("Exercise: " + workout.name + " " + workout.year + " " + workout.month + " " + workout.day + " " + " end");
                     System.out.println("Exercise: " + workout.exercises.get(0).name + " " + workout.exercises.get(0).minutes + " " + workout.exercises.get(0).reps + " end");
                     appFile.newWorkout(workout);
