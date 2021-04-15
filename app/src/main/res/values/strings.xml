@@ -26,6 +26,10 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="would_you_like_to_record_the_workout">Would you like to record the workout?</string>
+    <string name="_0">0</string>
+    <string name="end">End</string>
+    <string name="_0_0">0 0</string>
+    <string name="sign">:</string>
     <string-array name="workout_array">
         <item>Run</item>
         <item>Squats</item>
