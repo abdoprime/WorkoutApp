@@ -21,6 +21,9 @@
         <activity
             android:name=".AddClass"
             android:label="Add Exercise" />
+        <activity
+            android:name=".ExerciseClass"
+            android:label="Working Out" />
     </application>
 
 </manifest>

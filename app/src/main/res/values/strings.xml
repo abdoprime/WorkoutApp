@@ -15,6 +15,12 @@
     <string name="save">Save</string>
     <string name="workout_name">Workout Name</string>
     <string name="example">example</string>
+    <string name="title">Title</string>
+    <string name="exercise">Exercise</string>
+    <string name="line">_____________________________________________________</string>
+    <string name="start">Start</string>
+    <string name="next">Next</string>
+    <string name="button">Button</string>
     <string-array name="workout_array">
         <item>Run</item>
         <item>Squats</item>

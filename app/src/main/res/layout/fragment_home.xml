@@ -47,7 +47,9 @@
         android:layout_marginStart="159dp"
         android:layout_marginLeft="159dp"
         android:layout_marginTop="65dp"
-        android:text="Button"
+        android:text="@string/button"
+        android:onClick="exercise_page"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -107,19 +107,12 @@ public class AddClass extends AppCompatActivity {
                 System.out.println(year + "/" + month + "/" + day);
                 Workout workout = new Workout(exerciseName, year, month, day, exercisesList);
 
-
-
-
-
-
-
-
-
                 if (workout != null)
                 {
                     String filedir = getFilesDir().getPath();
                     AppFileManager appFile = new AppFileManager(filedir);
-                    System.out.println("Exercise: " + workout.name + " " + workout.year + " " + workout.month + " " + workout.day + " " + " end");
+//                    System.out.println("Exercise: " + workout.name + " " + workout.year + " " + workout.month + " " + workout.day + " " + " end");
+                    System.out.println("Exercise: " + workout.exercises.get(0).name + " " + workout.exercises.get(0).minutes + " " + workout.exercises.get(0).reps + " end");
                     appFile.newWorkout(workout);
                 }
                 else
@@ -128,11 +121,6 @@ public class AddClass extends AppCompatActivity {
                 }
                 ed.getText().clear();
                 returnHome();
-
-
-
-
-
             }
         });
 

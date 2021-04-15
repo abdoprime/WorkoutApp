@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddClass.class);
         startActivity(intent);
     }
+    public void exercise_page(View view) {
+        Intent intent = new Intent(this, ExerciseClass.class);
+        startActivity(intent);
+    }
 
     public static class HomeFragment extends Fragment {
 
