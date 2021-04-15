@@ -21,6 +21,11 @@
     <string name="start">Start</string>
     <string name="next">Next</string>
     <string name="button">Button</string>
+    <string name="back">Back</string>
+    <string name="finish">Finish</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="would_you_like_to_record_the_workout">Would you like to record the workout?</string>
     <string-array name="workout_array">
         <item>Run</item>
         <item>Squats</item>

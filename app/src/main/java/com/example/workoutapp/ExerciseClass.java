@@ -10,6 +10,7 @@ public class ExerciseClass extends AppCompatActivity {
 
     TextView textViewToChange;
     static int workoutIndex = 0, exerciseIndex = 0, size = 0;
+    String name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +30,35 @@ public class ExerciseClass extends AppCompatActivity {
 
         System.out.println("size: " + size);
 
+        name = workout.name;
+
         textViewToChange = findViewById(R.id.WorkoutTitle);
         textViewToChange.setText(workout.name);
 
         textViewToChange = findViewById(R.id.ExerciseTitle);
         textViewToChange.setText(workout.exercises.get(exerciseIndex).name);
 
-        if (size-1 == exerciseIndex) findViewById(R.id.nextBtn).setVisibility(View.INVISIBLE);
-        else findViewById(R.id.nextBtn).setVisibility(View.VISIBLE);
+        if (size-1 == exerciseIndex)
+        {
+            findViewById(R.id.nextBtn).setVisibility(View.INVISIBLE);
+            findViewById(R.id.FinishBtn).setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            findViewById(R.id.nextBtn).setVisibility(View.VISIBLE);
+            findViewById(R.id.FinishBtn).setVisibility(View.INVISIBLE);
+        }
+
+        if (exerciseIndex == 0) findViewById(R.id.backBtn).setVisibility(View.INVISIBLE);
+        else findViewById(R.id.backBtn).setVisibility(View.VISIBLE);
+
+        if (workout.exercises.get(exerciseIndex).name.equals("Run")) findViewById(R.id.startBtn).setVisibility(View.VISIBLE);
+        else findViewById(R.id.startBtn).setVisibility(View.INVISIBLE);
 
         findViewById(R.id.cancel).setOnClickListener(v -> returnHome());
         findViewById(R.id.nextBtn).setOnClickListener(v -> nextExercise());
+        findViewById(R.id.backBtn).setOnClickListener(v -> backExercise());
+        findViewById(R.id.FinishBtn).setOnClickListener(v -> FinishWorkout());
     }
 
     public void returnHome() {
@@ -48,15 +67,19 @@ public class ExerciseClass extends AppCompatActivity {
         startActivity(intent);
     }
     public void nextExercise() {
-        if (exerciseIndex != size-1)
-        {
-            exerciseIndex++;
-            Intent intent = new Intent(this, ExerciseClass.class);
-            startActivity(intent);
-        }
-        else
-        {
-            exerciseIndex = 0;
-        }
+        exerciseIndex++;
+        Intent intent = new Intent(this, ExerciseClass.class);
+        startActivity(intent);
+    }
+    public void backExercise() {
+        exerciseIndex--;
+        Intent intent = new Intent(this, ExerciseClass.class);
+        startActivity(intent);
+    }
+    public void FinishWorkout() {
+        exerciseIndex = 0;
+        Intent intent = new Intent(this, FinishClass.class);
+        intent.putExtra("NAME", name + "\nCompleted!");
+        startActivity(intent);
     }
 }

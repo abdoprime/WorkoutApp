@@ -24,6 +24,9 @@
         <activity
             android:name=".ExerciseClass"
             android:label="Working Out" />
+        <activity
+            android:name=".FinishClass"
+            android:label="Working Out" />
     </application>
 
 </manifest>
