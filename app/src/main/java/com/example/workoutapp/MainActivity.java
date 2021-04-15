@@ -22,6 +22,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -41,94 +43,10 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-//        if (navView.getSelectedItemId() != R.id.navigation_home)
-//        {
-//            System.out.println(navView.findViewWithTag(R.id.nav_view));
-//            System.out.println(navView.getMenu().findItem(navView.getSelectedItemId()));
-//            System.out.println(R.id.navigation_history);
-//            System.out.println(R.id.navigation_home);
-//            System.out.println(R.id.navigation_add);
-//            System.out.println("\n\nIts working\n\n");
-//            Log.d("MyApp","I am here");
-//        }
-        String filedir = getFilesDir().getPath();
-        AppFileManager appFile = new AppFileManager(filedir);
 
     }
     public void add_page(View view) {
         Intent intent = new Intent(this, AddClass.class);
         startActivity(intent);
-    }
-    public void exercise_page(View view) {
-        Intent intent = new Intent(this, ExerciseClass.class);
-        startActivity(intent);
-    }
-
-    public static class HomeFragment extends Fragment {
-
-        private HomeViewModel homeViewModel;
-
-        public View onCreateView(@NonNull LayoutInflater inflater,
-                                 ViewGroup container, Bundle savedInstanceState) {
-            homeViewModel =
-                    new ViewModelProvider(this).get(HomeViewModel.class);
-            View root = inflater.inflate(R.layout.fragment_home, container, false);
-            final TextView textView = root.findViewById(R.id.text_home);
-            homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-                @Override
-                public void onChanged(@Nullable String s) {
-                    textView.setText(s);
-                }
-            });
-            return root;
-        }
-    }
-
-    public static class HomeViewModel extends ViewModel {
-
-        private MutableLiveData<String> mText;
-
-        public HomeViewModel() {
-            mText = new MutableLiveData<>();
-            mText.setValue("This is home fragment");
-        }
-
-        public LiveData<String> getText() {
-            return mText;
-        }
-    }
-
-    public static class NotificationsFragment extends Fragment {
-
-        private NotificationsViewModel notificationsViewModel;
-
-        public View onCreateView(@NonNull LayoutInflater inflater,
-                                 ViewGroup container, Bundle savedInstanceState) {
-            notificationsViewModel =
-                    new ViewModelProvider(this).get(NotificationsViewModel.class);
-            View root = inflater.inflate(R.layout.fragment_history, container, false);
-            final TextView textView = root.findViewById(R.id.text_notifications);
-            notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-                @Override
-                public void onChanged(@Nullable String s) {
-                    textView.setText(s);
-                }
-            });
-            return root;
-        }
-    }
-
-    public static class NotificationsViewModel extends ViewModel {
-
-        private MutableLiveData<String> mText;
-
-        public NotificationsViewModel() {
-            mText = new MutableLiveData<>();
-            mText.setValue("This is notifications fragment");
-        }
-
-        public LiveData<String> getText() {
-            return mText;
-        }
     }
 }
