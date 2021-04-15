@@ -34,8 +34,9 @@ public class AppFileManager {
                 ArrayList<Workout> workoutList = new ArrayList<Workout>();
                 workoutList.add(exWorkout);
                 //public History(String name, int year, int month, int day, int hours, int minutes, int seconds, Workout workout)
-                History exHist = new History("Example Workout", 2021, 4, 12, 0, 30, 0, exWorkout);
+                History exHist = new History("Example History", 2021, 4, 12, 0, 30, 0, exWorkout);
                 ArrayList<History> histList = new ArrayList<History>();
+                histList.add(exHist);
                 appFile = new AppFile(workoutList,histList);
                 objectOut.writeObject(appFile);
                 objectOut.close();
@@ -91,6 +92,11 @@ public class AppFileManager {
     public ArrayList<Workout> returnWorkoutList()
     {
         return appFile.workouts;
+    }
+
+    public ArrayList<History> returnHistoryList()
+    {
+        return appFile.histories;
     }
 
     public void deleteWorkout(int index)
