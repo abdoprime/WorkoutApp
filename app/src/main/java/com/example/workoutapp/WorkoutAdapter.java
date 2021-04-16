@@ -52,6 +52,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.MyViewHo
 
             itemView.setOnClickListener(v -> {
                 int i = getAdapterPosition();
+
                 Intent intent = new Intent(itemView.getContext(), WorkoutPage.class);
                 intent.putExtra("INDEX", i);
                 itemView.getContext().startActivity(intent);

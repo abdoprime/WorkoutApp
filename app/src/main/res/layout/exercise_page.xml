@@ -203,7 +203,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintHorizontal_bias="0.381"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -219,7 +219,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -235,38 +235,8 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/MinutesLeft"
-        android:layout_width="90dp"
-        android:layout_height="109dp"
-        android:gravity="center"
-        android:text="@string/_0_0"
-        android:textColor="@color/white"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.345"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ExerciseLine"
-        app:layout_constraintVertical_bias="0.102" />
-
-    <TextView
-        android:id="@+id/SecondsLeft"
-        android:layout_width="94dp"
-        android:layout_height="107dp"
-        android:gravity="center"
-        android:text="@string/_0_0"
-        android:textColor="@color/white"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.649"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ExerciseLine"
-        app:layout_constraintVertical_bias="0.102" />
 
     <TextView
         android:id="@+id/colonSign"
@@ -278,8 +248,69 @@
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.639"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ExerciseLine"
-        app:layout_constraintVertical_bias="0.102" />
+        app:layout_constraintVertical_bias="0.099" />
+
+    <TextView
+        android:id="@+id/colonSign2"
+        android:layout_width="92dp"
+        android:layout_height="108dp"
+        android:gravity="center"
+        android:text="@string/sign"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.351"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ExerciseLine"
+        app:layout_constraintVertical_bias="0.099" />
+
+    <TextView
+        android:id="@+id/SecondsLeft"
+        android:layout_width="94dp"
+        android:layout_height="107dp"
+        android:gravity="center"
+        android:text="@string/_0_0"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.788"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ExerciseLine"
+        app:layout_constraintVertical_bias="0.099" />
+
+    <TextView
+        android:id="@+id/MinutesLeft"
+        android:layout_width="90dp"
+        android:layout_height="109dp"
+        android:gravity="center"
+        android:text="@string/_0_0"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ExerciseLine"
+        app:layout_constraintVertical_bias="0.099" />
+
+    <TextView
+        android:id="@+id/HoursLeft"
+        android:layout_width="90dp"
+        android:layout_height="109dp"
+        android:gravity="center"
+        android:text="@string/_0_0"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ExerciseLine"
+        app:layout_constraintVertical_bias="0.099" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

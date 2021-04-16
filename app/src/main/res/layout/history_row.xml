@@ -8,36 +8,43 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="109dp"
+        android:background="@color/darkGrey">
 
         <TextView
             android:id="@+id/histName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="379dp"
+            android:layout_height="33dp"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:gravity="center"
             android:text="Name"
+            android:textColor="@color/green"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/histDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="379dp"
+            android:layout_height="20dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:gravity="center"
             android:text="Date"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/histName" />
 
         <TextView
             android:id="@+id/histTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="379dp"
+            android:layout_height="26dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:gravity="center"
             android:text="TextView"
+            android:textColor="@color/yellow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/histDate" />
 

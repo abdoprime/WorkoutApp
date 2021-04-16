@@ -5,14 +5,10 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ExerciseClass extends AppCompatActivity {
 
@@ -21,8 +17,6 @@ public class ExerciseClass extends AppCompatActivity {
     String name = "";
     Workout workout = null;
 
-    private EditText hoursEditText, minutesEditText, secondsEditText;
-    TextView countDownText;
     private Button start, end;
     private CountDownTimer timer;
     int startTime;
@@ -30,21 +24,16 @@ public class ExerciseClass extends AppCompatActivity {
     TextView hoursLeftText, minutesLeftText, secondsLeftText;
     int totalSecondsLeft;
 
-    int hour = 0, minutes = 0, seconds = 0;
+    static int hour = 0, minutes = 0, seconds = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exercise_page);
 
-        Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("hh-mm-ss");
-        String strDate = dateFormat.format(date);
-        String[] array = strDate.split("-");
-
-        hour = Integer.parseInt(array[0]);
-        minutes = Integer.parseInt(array[1]);
-        seconds = Integer.parseInt(array[2]);
+        hour = getIntent().getIntExtra("HOUR", hour);
+        minutes = getIntent().getIntExtra("MIN", minutes);
+        seconds = getIntent().getIntExtra("SEC", seconds);
 
         workoutIndex = getIntent().getIntExtra("INDEX", workoutIndex);
 
@@ -89,6 +78,9 @@ public class ExerciseClass extends AppCompatActivity {
             findViewById(R.id.numOfSets).setVisibility(View.INVISIBLE);
             findViewById(R.id.numOfReps).setVisibility(View.INVISIBLE);
 
+            textViewToChange = findViewById(R.id.HoursLeft);
+            textViewToChange.setText(String.format("%02d",(workout.exercises.get(exerciseIndex).hours)));
+
             textViewToChange = findViewById(R.id.MinutesLeft);
             textViewToChange.setText(String.format("%02d",(workout.exercises.get(exerciseIndex).minutes)));
 
@@ -113,6 +105,7 @@ public class ExerciseClass extends AppCompatActivity {
             textViewToChange.setText(String.valueOf(workout.exercises.get(exerciseIndex).reps));
         }
 
+        hoursLeftText = findViewById(R.id.HoursLeft);
         minutesLeftText = findViewById(R.id.MinutesLeft);
         secondsLeftText = findViewById(R.id.SecondsLeft);
         setupButtons();
@@ -138,10 +131,11 @@ public class ExerciseClass extends AppCompatActivity {
 
     private void updateTimeRemaining(long millisUntilFinished) {
         totalSecondsLeft = (int) millisUntilFinished / 1000;
-
+        hoursLeft = totalSecondsLeft / 3600;
         minutesLeft = (totalSecondsLeft % 3600) / 60;
         secondsLeft = totalSecondsLeft % 60;
 
+        hoursLeftText.setText(String.format("%02d", hoursLeft));
         minutesLeftText.setText(String.format("%02d", minutesLeft));
         secondsLeftText.setText(String.format("%02d", secondsLeft));
     }
@@ -149,28 +143,26 @@ public class ExerciseClass extends AppCompatActivity {
     private void setupButtons() {
         start = findViewById(R.id.startBtn);
         end = findViewById(R.id.endBtn);
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startTime = 0;
-                startTime += workout.exercises.get(exerciseIndex).seconds * 1000;
-                startTime += workout.exercises.get(exerciseIndex).minutes * 60 * 1000;
+        start.setOnClickListener(v -> {
+            startTime = 0;
+            startTime += workout.exercises.get(exerciseIndex).seconds * 1000;
+            startTime += workout.exercises.get(exerciseIndex).minutes * 60 * 1000;
+            startTime += workout.exercises.get(exerciseIndex).hours * 60 * 60 * 1000;
 
-                start.setVisibility(View.INVISIBLE);
-                end.setVisibility(View.VISIBLE);
+            start.setVisibility(View.INVISIBLE);
+            end.setVisibility(View.VISIBLE);
 
-                timer = new CountDownTimer(startTime, 1000) {
-                    @Override
-                    public void onTick(long millisUntilFinished) {
-                        updateTimeRemaining(millisUntilFinished);
-                    }
+            timer = new CountDownTimer(startTime, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    updateTimeRemaining(millisUntilFinished);
+                }
 
-                    @Override
-                    public void onFinish() {
-                        finishTimer("Running done");
-                    }
-                }.start();
-            }
+                @Override
+                public void onFinish() {
+                    finishTimer("Running done");
+                }
+            }.start();
         });
 
         end.setOnClickListener(new View.OnClickListener() {
@@ -184,7 +176,8 @@ public class ExerciseClass extends AppCompatActivity {
 
     public void returnHome() {
         exerciseIndex = 0;
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, WorkoutPage.class);
+        intent.putExtra("INDEX", workoutIndex);
         startActivity(intent);
     }
     public void nextExercise() {

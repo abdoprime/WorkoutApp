@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,21 +33,43 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Exercise ex = exercises.get(position);
-        String time = ex.hours +"h " + ex.minutes + "m " + ex.seconds + "s";
+//        String time = ex.hours +"h " + ex.minutes + "m " + ex.seconds + "s";
         System.out.println("THE EXERCISE IS: "+ ex.sets);
         holder.name.setText(ex.name);
-        holder.sets.setText("Sets: " + ex.sets);
-        holder.reps.setText("Reps: " + ex.reps);
+//        holder.sets.setText("Sets: " + ex.sets);
+//        holder.reps.setText("Reps: " + ex.reps);
+
+        holder.editSets.setText(String.valueOf(ex.sets));
+        holder.editReps.setText(String.valueOf(ex.reps));
+
         if(ex.type == 't')
         {
             holder.sets.setVisibility(View.INVISIBLE);
             holder.reps.setVisibility(View.INVISIBLE);
+            holder.editSets.setVisibility(View.INVISIBLE);
+            holder.editReps.setVisibility(View.INVISIBLE);
+
+            holder.time.setVisibility(View.VISIBLE);
+            holder.hh.setVisibility(View.VISIBLE);
+            holder.mm.setVisibility(View.VISIBLE);
+            holder.ss.setVisibility(View.VISIBLE);
         }
         else
         {
             holder.time.setVisibility(View.INVISIBLE);
+            holder.hh.setVisibility(View.INVISIBLE);
+            holder.mm.setVisibility(View.INVISIBLE);
+            holder.ss.setVisibility(View.INVISIBLE);
+
+            holder.sets.setVisibility(View.VISIBLE);
+            holder.reps.setVisibility(View.VISIBLE);
+            holder.editSets.setVisibility(View.VISIBLE);
+            holder.editReps.setVisibility(View.VISIBLE);
         }
-        holder.time.setText(time);
+        holder.hh.setText(String.format("%d", ex.hours));
+        holder.mm.setText(String.format("%d", ex.minutes));
+        holder.ss.setText(String.format("%d", ex.seconds));
+
         switch(ex.name)
         {
             case "Run":
@@ -70,7 +93,8 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView name, sets, reps,time;
+        TextView name, sets, reps, time;
+        EditText hh, mm, ss, editSets, editReps;
         ImageView image;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -78,7 +102,14 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.MyView
             name = itemView.findViewById(R.id.exName);
             sets = itemView.findViewById(R.id.exSets);
             reps = itemView.findViewById(R.id.exReps);
+            editSets = itemView.findViewById(R.id.EditSets);
+            editReps = itemView.findViewById(R.id.EditReps);
+
             time = itemView.findViewById(R.id.exTime);
+            hh = itemView.findViewById(R.id.HH);
+            mm = itemView.findViewById(R.id.MM);
+            ss = itemView.findViewById(R.id.SS);
+
             image = itemView.findViewById(R.id.exImg);
 
             itemView.setOnClickListener(v -> {

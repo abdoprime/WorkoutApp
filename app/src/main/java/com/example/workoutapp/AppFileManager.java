@@ -14,29 +14,33 @@ public class AppFileManager {
             file.delete();
         }
         boolean exists = file.exists();
-        if(exists == false)
+        if(!exists)
         {
             try
             {
                 System.out.println("Went into Try");
                 FileOutputStream fileOut = new FileOutputStream(filepath);
                 ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+
                 //public Exercise(String name, char type, int sets, int reps)
                 Exercise ex1 = new Exercise("Run",'t',0,15,0);
                 Exercise ex2 = new Exercise("Pushups",'s',3, 10);
                 Exercise ex3 = new Exercise("Squats",'s',3, 10);
-                ArrayList<Exercise> exList = new ArrayList<Exercise>();
+                ArrayList<Exercise> exList = new ArrayList<>();
                 exList.add(ex1);
                 exList.add(ex2);
                 exList.add(ex3);
+
                 //Workout(String name, int year, int month, int day, ArrayList<Exercise> exercises)
                 Workout exWorkout = new Workout("Example Workout", 2021,4,12,exList);
-                ArrayList<Workout> workoutList = new ArrayList<Workout>();
+                ArrayList<Workout> workoutList = new ArrayList<>();
                 workoutList.add(exWorkout);
+
                 //public History(String name, int year, int month, int day, int hours, int minutes, int seconds, Workout workout)
                 History exHist = new History("Example History", 2021, 4, 12, 0, 30, 0, exWorkout);
-                ArrayList<History> histList = new ArrayList<History>();
+                ArrayList<History> histList = new ArrayList<>();
                 histList.add(exHist);
+
                 appFile = new AppFile(workoutList,histList);
                 objectOut.writeObject(appFile);
                 objectOut.close();
@@ -53,7 +57,7 @@ public class AppFileManager {
                 System.out.println("Went into Try 2");
                 FileInputStream fileIn = new FileInputStream(filepath);
                 ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-                Object obj = (AppFile)objectIn.readObject();
+                Object obj = objectIn.readObject();
                 System.out.println("The Object has been read from the file");
                 objectIn.close();
                 appFile = (AppFile) obj;
@@ -113,8 +117,7 @@ public class AppFileManager {
 
     public Workout returnWorkout(int index)
     {
-        Workout wrk = appFile.returnWorkout(index);
-        return wrk;
+        return appFile.returnWorkout(index);
     }
 
     public void newHistory(History history)
@@ -125,8 +128,7 @@ public class AppFileManager {
 
     public History returnHistory(int index)
     {
-        History hist = appFile.returnHistory(index);
-        return hist;
+        return appFile.returnHistory(index);
     }
 
     public void deleteHistory(int index)
@@ -134,6 +136,4 @@ public class AppFileManager {
         appFile.deleteHistory(index);
         this.saveFile();
     }
-
-
 }

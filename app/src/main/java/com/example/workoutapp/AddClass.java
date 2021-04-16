@@ -57,7 +57,9 @@ public class AddClass extends AppCompatActivity {
                 findViewById(R.id.NumberOfSets).setVisibility(View.INVISIBLE);
                 findViewById(R.id.NumberOfReps).setVisibility(View.INVISIBLE);
 
-                findViewById(R.id.RunTime).setVisibility(View.VISIBLE);
+                findViewById(R.id.addHH).setVisibility(View.VISIBLE);
+                findViewById(R.id.addMM).setVisibility(View.VISIBLE);
+                findViewById(R.id.addSS).setVisibility(View.VISIBLE);
                 findViewById(R.id.TimeHeading).setVisibility(View.VISIBLE);
             }
             else {
@@ -66,7 +68,9 @@ public class AddClass extends AppCompatActivity {
                 findViewById(R.id.NumberOfSets).setVisibility(View.VISIBLE);
                 findViewById(R.id.NumberOfReps).setVisibility(View.VISIBLE);
 
-                findViewById(R.id.RunTime).setVisibility(View.INVISIBLE);
+                findViewById(R.id.addHH).setVisibility(View.INVISIBLE);
+                findViewById(R.id.addMM).setVisibility(View.INVISIBLE);
+                findViewById(R.id.addSS).setVisibility(View.INVISIBLE);
                 findViewById(R.id.TimeHeading).setVisibility(View.INVISIBLE);
             }
         }
@@ -104,21 +108,12 @@ public class AddClass extends AppCompatActivity {
                 int year = Integer.parseInt(array[0]), month = Integer.parseInt(array[1]),
                         day = Integer.parseInt(array[2]);
 
-                System.out.println(year + "/" + month + "/" + day);
                 Workout workout = new Workout(exerciseName, year, month, day, exercisesList);
 
-                if (workout != null)
-                {
-                    String filedir = getFilesDir().getPath();
-                    AppFileManager appFile = new AppFileManager(filedir, 0);
-//                    System.out.println("Exercise: " + workout.name + " " + workout.year + " " + workout.month + " " + workout.day + " " + " end");
-                    System.out.println("Exercise: " + workout.exercises.get(0).name + " " + workout.exercises.get(0).minutes + " " + workout.exercises.get(0).reps + " end");
-                    appFile.newWorkout(workout);
-                }
-                else
-                {
-                    System.out.println("Workout null");
-                }
+                String filedir = getFilesDir().getPath();
+                AppFileManager appFile = new AppFileManager(filedir, 0);
+                appFile.newWorkout(workout);
+
                 ed.getText().clear();
                 returnHome();
             }
@@ -172,17 +167,31 @@ public class AddClass extends AppCompatActivity {
             // Get the id of the edit text
             EditText ed = findViewById(R.id.NumberOfReps);
             String temp = ed.getText().toString();
-            int reps = 1, sets = 1, time = 1;
+            int reps = 1, sets = 1, hours = 0, minutes = 0, seconds = 0;
             Exercise exercise;
 
             if (spinner.getSelectedItem().equals("Run"))
             {
-                ed = findViewById(R.id.RunTime);
+                ed = findViewById(R.id.addHH);
                 temp = ed.getText().toString();
 
-                if (!"".equals(temp)) time = (Integer.parseInt(temp));
+                ed.getText().clear();
 
-                exercise = new Exercise("Run", 't', 0, time, 0);
+                if (!"".equals(temp)) hours = (Integer.parseInt(temp));
+
+                ed = findViewById(R.id.addMM);
+                temp = ed.getText().toString();
+
+                ed.getText().clear();
+
+                if (!"".equals(temp)) minutes = (Integer.parseInt(temp));
+
+                ed = findViewById(R.id.addSS);
+                temp = ed.getText().toString();
+
+                if (!"".equals(temp)) seconds = (Integer.parseInt(temp));
+
+                exercise = new Exercise("Run", 't', hours, minutes, seconds);
 
                 ed.getText().clear();
             }
@@ -207,7 +216,6 @@ public class AddClass extends AppCompatActivity {
                     "Workout Added", Toast.LENGTH_SHORT).show();
 
             exercisesList.add(exercise);
-//            System.out.println("UserValues " + reps + " String: " + sets + " end " + time);
         });
     }
 
