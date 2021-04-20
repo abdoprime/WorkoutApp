@@ -92,7 +92,9 @@ public class ExerciseClass extends AppCompatActivity {
             findViewById(R.id.startBtn).setVisibility(View.INVISIBLE);
             findViewById(R.id.MinutesLeft).setVisibility(View.INVISIBLE);
             findViewById(R.id.SecondsLeft).setVisibility(View.INVISIBLE);
+            findViewById(R.id.HoursLeft).setVisibility(View.INVISIBLE);
             findViewById(R.id.colonSign).setVisibility(View.INVISIBLE);
+            findViewById(R.id.colonSign2).setVisibility(View.INVISIBLE);
 
             findViewById(R.id.SetsReps).setVisibility(View.VISIBLE);
             findViewById(R.id.numOfSets).setVisibility(View.VISIBLE);

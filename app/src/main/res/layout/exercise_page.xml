@@ -48,8 +48,8 @@
 
     <TextView
         android:id="@+id/ExerciseTitle"
-        android:layout_width="203dp"
-        android:layout_height="91dp"
+        android:layout_width="319dp"
+        android:layout_height="147dp"
         android:gravity="center"
         android:text="@string/exercise"
         android:textAllCaps="false"
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exerciseHeading"
-        app:layout_constraintVertical_bias="0.244" />
+        app:layout_constraintVertical_bias="0.161" />
 
     <TextView
         android:id="@+id/ExerciseLine"
